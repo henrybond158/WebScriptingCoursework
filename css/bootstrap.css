@@ -3797,6 +3797,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-bottom: 10px;
   line-height: 20px;
 }
+#txt {
+  padding-top:15px;
+  padding-bottom:10px;
+  color:#999;
+}
+#txt:hover{
+  color:#ffffff;
+
+}
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;

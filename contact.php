@@ -18,59 +18,11 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-          <a class="navbar-brand" href="index.php">Brodick Castle</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="about.php">About</a></li>
-            <li><a href="services.php">Services</a></li>
-            <li class="active"><a href="contact.php">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio-1-col.php">1 Column Portfolio</a></li>
-                <li><a href="portfolio-2-col.php">2 Column Portfolio</a></li>
-                <li><a href="portfolio-3-col.php">3 Column Portfolio</a></li>
-                <li><a href="portfolio-4-col.php">4 Column Portfolio</a></li>
-                <li><a href="portfolio-item.php">Single Portfolio Item</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="blog-home-1.php">Blog Home 1</a></li>
-                <li><a href="blog-home-2.php">Blog Home 2</a></li>
-                <li><a href="blog-post.php">Blog Post</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="full-width.php">Full Width Page</a></li>
-                <li><a href="sidebar.php">Sidebar Page</a></li>
-                <li><a href="faq.php">FAQ</a></li>
-                <li><a href="404.php">404</a></li>
-                <li><a href="pricing.php">Pricing Table</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav>
-
+<!-- this php block includes the nav bar which will persist across all pages on this website, this is done to reduce server space required -->
+<?php 
+include 'nav'
+?>
+   
     <!-- Page Content -->
 
     <div class="container">
@@ -93,7 +45,7 @@
         <div class="col-sm-8">
           <h3>If you have any questions, please contact us here</h3>
           <p>Though this form will not actually reach Brodick Castle, it may be useful for checking the functionality, it will email the email address you enter in the email address box, with the content of the message box</p>
-			<?php  
+      <?php  
 
                 // check for a successful form post  
                 if (isset($_GET['s'])) echo "<div class=\"alert alert-success\">".$_GET['s']."</div>";  
@@ -101,36 +53,36 @@
                 // check for a form error  
                 elseif (isset($_GET['e'])) echo "<div class=\"alert alert-danger\">".$_GET['e']."</div>";  
 
-			?>
+      ?>
             <form id="mc-form" class="mc-active" role="form" method="POST" action="contact-form-submission.php">
-	            <div class="row">
-	              <div class="form-group col-lg-4">
-	                <label for="input1">Name</label>
-	                <input type="text" name="contact_name" class="form-control" id="input1">
-	              </div>
-	              <div class="form-group col-lg-4">
-	                <label for="input2">Email Address</label>
-	                <input type="email" name="contact_email" class="form-control" id="input2">
-	              </div>
-	              <div class="form-group col-lg-4">
-	                <label for="input3">Phone Number</label>
-	                <input type="phone" name="contact_phone" class="form-control" id="input3">
-	              </div>
-	              <div class="clearfix"></div>
-	              <div class="form-group col-lg-12">
-	                <label for="input4">Message</label>
-	                <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
-	              </div>
-	              <div class="form-group col-lg-12">#<div id="mc">
+              <div class="row">
+                <div class="form-group col-lg-4">
+                  <label for="input1">Name</label>
+                  <input type="text" name="contact_name" class="form-control" id="input1">
+                </div>
+                <div class="form-group col-lg-4">
+                  <label for="input2">Email Address</label>
+                  <input type="email" name="contact_email" class="form-control" id="input2">
+                </div>
+                <div class="form-group col-lg-4">
+                  <label for="input3">Phone Number</label>
+                  <input type="phone" name="contact_phone" class="form-control" id="input3">
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-lg-12">
+                  <label for="input4">Message</label>
+                  <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
+                </div>
+                <div class="form-group col-lg-12">#<div id="mc">
           <p>Please draw the shape in the box to submit the form: (<a onclick="window.location.reload()" href="#" title="Click for a new shape">new shape</a>)</p>
           <canvas id="mc-canvas">
             Your browser doesn't support the canvas element - please visit in a modern browser.
           </canvas>
           <input type="hidden" id="mc-action" value="http://josscrowcroft.com/projects/motioncaptcha-jquery-plugin/" />
         </div>
-	                <input type="hidden" name="save" value="contact">
-	                <button type="submit" disabled="disabled" class="btn btn-primary">Submit</button>
-	              </div>
+                  <input type="hidden" name="save" value="contact">
+                  <button type="submit" disabled="disabled" class="btn btn-primary">Submit</button>
+                </div>
               </div>
             </form>
         </div>
