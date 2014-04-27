@@ -123,7 +123,7 @@ include 'nav'
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
   
   <!-- HTML5 Placeholder fallback: -->
- <!-- <script src="js/jquery.placeholder.1.1.1.min.js" type="text/javascript"></script> -->
+ <!-- <script src="js/jquery.placeholder.1.1.1.js" type="text/javascript"></script> -->
   
   <!-- MotionCAPTCHA: -->
 <script src="js/jquery.motionCaptcha.0.2.min.js"></script>

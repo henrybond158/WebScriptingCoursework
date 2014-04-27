@@ -15,16 +15,16 @@ $content = $_POST['contact_message'];
 if (empty($name))
     $error = 'You must enter your name.';
 // check that an email address was entered
-elseif (empty($email_address)) 
+elseif (empty($email)) 
     $error = 'You must enter your email address.';
 // check for a valid email address
-elseif (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email_address))
+elseif (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email))
     $error = 'You must enter a valid email address.';
 // check that a phone number was entered
-if (empty($phone))
+if (empty($phoneNumber))
     $error = 'You must enter your phone number.';
 // check that a message was entered
-elseif (empty($message))
+elseif (empty($content))
     $error = 'You must enter a message.';
 		
 // check if an error was found - if there was, send the user back to the form
@@ -32,8 +32,8 @@ if (isset($error)) {
     header('Location: contact.php?e='.urlencode($error)); exit;
 }
 
-$headers = "From: $email_address\r\n"; 
-$headers .= "Reply-To: $email_address\r\n";
+$headers = "From: $email\r\n"; 
+$headers .= "Reply-To: $email\r\n";
 
 // write the email content
 $email_content = "Name: $name\n";
@@ -42,9 +42,12 @@ $email_content .= "Phone Number: $phoneNumber\n";
 $email_content .= "Message:\n\n$content";
 	
 // send the email
-//ENTER YOUR INFORMATION BELOW FOR THE FORM TO WORK!
 mail ($email, 'Your submission', $content, $headers);
-	
+// insert the data into the database
+include_once('creds.php');
+$con = mysqli_connect($ip, $user, $password, $database);
+$script = 'INSERT INTO contactDetails($name,$email,$phoneNumber,$content)';
+mysqli_query($con,$script);
 // send the user back to the form
 header('Location: contact.html?s='.urlencode('Thank you for your message.')); exit;
 
