@@ -76,10 +76,10 @@ include 'nav'
                 var_dump($result);
                 if($result)
                 {
-                echo 'we are closed this month'
-                };
+               
+                }
                 else{
-                
+                    echo 'we are closed this month';
                 }
                 ?>
 
