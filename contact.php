@@ -73,16 +73,16 @@ include 'nav'
                   <label for="input4">Message</label>
                   <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
                 </div>
-                <div class="form-group col-lg-12">#<div id="mc">
+                <div class="form-group col-lg-12">
+	  <div id="mc">
           <p>Please draw the shape in the box to submit the form: (<a onclick="window.location.reload()" href="#" title="Click for a new shape">new shape</a>)</p>
           <canvas id="mc-canvas">
             Your browser doesn't support the canvas element - please visit in a modern browser.
           </canvas>
-          <input type="hidden" id="mc-action" value="http://josscrowcroft.com/projects/motioncaptcha-jquery-plugin/" />
-        </div>
-                  <input type="hidden" name="save" value="contact">
-                  <button type="submit" disabled="disabled" class="btn btn-primary">Submit</button>
+        <input type="hidden" name="save" value="contact">
+<p><input disabled="disabled" autocomplete="false" type="submit" value="Submit"></p>
                 </div>
+		</div>
               </div>
             </form>
         </div>
@@ -123,10 +123,9 @@ include 'nav'
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
   
   <!-- HTML5 Placeholder fallback: -->
- <!-- <script src="js/jquery.placeholder.1.1.1.js" type="text/javascript"></script> -->
-  
+ <script src="js/jquery.placeholder.1.1.1.min.js" type="text/javascript"></script>
   <!-- MotionCAPTCHA: -->
-<script src="js/jquery.motionCaptcha.0.2.min.js"></script>
+<script src="js/jquery.motionCaptcha.0.2.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function($) {
       

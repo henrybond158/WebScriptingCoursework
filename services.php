@@ -58,13 +58,32 @@ include 'nav'
         <div class="row">
 
             <div class="col-md-8">
-                <h2 class="page-header">Our Premium Services</h2>
-                <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <h2 class="page-header">Our Opening Hours</h2>
+                <p>We are open during Summer months...</p>
             </div>
 
             <div class="col-md-4">
-                <h2 class="page-header">Something More</h2>
-                <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+                <h2 class="page-header">Are we open now?</h2>
+                <p>
+                <?php 
+                include_once('creds.php');
+                $dateMonth = date('F');
+                echo ($dateMonth);
+                
+                $sqlString = 'SELECT openThisMonth WHERE month == $dateMONTH';  
+                $con = mysqli_connect($ip,$user,$password,$collectData);
+                $result = mysqli_query($con,$sqlString);
+                var_dump($result);
+                if($result)
+                {
+                echo 'we are closed this month'
+                };
+                else{
+                
+                }
+                ?>
+
+                </p>
                 <a class="btn btn-primary" href="#">Click Me!</a>
             </div>
 
